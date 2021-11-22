@@ -1,0 +1,355 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+//M = 23 Z = 1 P = 8
+int itc_len_num(long long number){
+    int i = 0;
+    while (number != 0){
+        i = i + 1;
+        number = number / 10;
+    }
+    return i;
+}
+
+long long itc_len(string str){
+ int i = 0, counter = 0;
+ while (str[i] != '\0'){
+    i++;
+    counter++;
+ }
+ return counter;
+ }
+
+string itc_reverse_str(string str){
+long long i = itc_len(str) - 1;
+string str1 = "";
+while (i >= 0){
+    str1 += str[i];
+    i--;
+}
+return str1;
+}
+
+int itc_find_str(string s1, string iscomoe){
+string s3;
+int i1 = 0, i2 = 0, i;
+long long len2;
+ while (s1[i1] != '\0'){
+ if (s1[i1] == iscomoe[i2]){
+    i = 0;
+    len2 = itc_len(iscomoe);
+    s3 = "";
+    while ( i < len2){
+        s3 += s1[i1 + i];
+        i++;
+    }
+    if (s3 == iscomoe){
+        return i1;
+    }
+ }
+ i1++;
+
+ }
+return -1;
+}
+
+string itc_slice_str(string str, int start, int end_){
+if(end_ < start){
+    return str;
+}
+else if(end_ > itc_len(str)-1){
+    end_ = itc_len(str)-1;
+}
+string str1 = "";
+while (start <= end_){
+    str1 += str[start];
+    start ++;
+}
+return str1;
+}
+
+long long sup_pow(long long num, int pow){
+long long num_const = num;
+if (pow == 0){ return 1;}
+while (pow > 1){
+    num *=num_const;
+    pow--;
+}
+
+return num;
+}
+
+long long string_number(string str){
+long long n = 0, i = 0;
+if (str == "0"){ return 0;}
+while (str[i] != '\0'){
+    if (str[i] == '1'){
+        n += 1;
+    }
+    else if (str[i] == '2'){
+        n += 2;
+    }
+    else if (str[i] == '3'){
+        n += 3;
+    }
+    else if (str[i] == '4'){
+        n += 4;
+    }
+    else if (str[i] == '5'){
+        n += 5;
+    }
+    else if (str[i] == '6'){
+        n += 6;
+    }
+    else if (str[i] == '7'){
+        n += 7;
+    }
+    else if (str[i] == '8'){
+        n += 8;
+    }
+    else if (str[i] == '9'){
+        n += 9;
+    }
+    i++;
+    n = n * 10;
+}
+return n / 10;
+}
+
+double string_number_double(string str){
+long double n = 0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001, z = 10.0;
+long long i = 0;
+if (str == "0"){ return 0;}
+while (str[i] != '\0'){
+     if (str[i] == '1'){
+        n += 1/z;
+    }
+    else if (str[i] == '2'){
+        n += 2/z;
+    }
+    else if (str[i] == '3'){
+        n += 3/z;
+    }
+    else if (str[i] == '4'){
+        n += 4/z;
+    }
+    else if (str[i] == '5'){
+        n += 5/z;
+    }
+    else if (str[i] == '6'){
+        n += 6/z;
+    }
+    else if (str[i] == '7'){
+        n += 7/z;
+    }
+    else if (str[i] == '8'){
+        n += 8/z;
+    }
+    else if (str[i] == '9'){
+        n += 9/z;
+    }
+    z = z * 10.0;
+    i++;
+
+}
+n = n - 0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001;
+return n;
+}
+
+string number_string(long long n){
+string str = "";
+int a = 0;
+if (n == 0){
+    return "0";
+}
+while (n > 0){
+
+a = n%10;
+
+if (a == 0){
+    str += '0';
+}
+
+else if (a == 1){
+    str += '1';
+}
+
+else if (a == 2){
+    str += '2';
+}
+
+else if (a == 3){
+    str += '3';
+}
+
+else if (a == 4){
+    str += '4';
+}
+
+else if (a == 5){
+    str += '5';
+}
+
+else if (a == 6){
+    str += '6';
+}
+
+else if (a == 7){
+    str += '7';
+}
+
+else if (a == 8){
+    str += '8';
+}
+
+else if (a == 9){
+    str += '9';
+}
+
+n = n/10;
+
+}
+return itc_reverse_str(str);
+}
+
+string itc_decToBase(int num, int base){
+string str;
+int a = 0;
+while (num > 0){
+
+a = num % base;
+
+if (a == 0){
+    str += '0';
+}
+
+else if (a == 1){
+    str += '1';
+}
+
+else if (a == 2){
+    str += '2';
+}
+
+else if (a == 3){
+    str += '3';
+}
+
+else if (a == 4){
+    str += '4';
+}
+
+else if (a == 5){
+    str += '5';
+}
+
+else if (a == 6){
+    str += '6';
+}
+
+else if (a == 7){
+    str += '7';
+}
+
+else if (a == 8){
+    str += '8';
+}
+
+else if (a == 9){
+    str += '9';
+}
+
+else if (a == 10){
+    str += 'A';
+}
+
+else if (a == 11){
+    str += 'B';
+}
+
+else if (a == 12){
+    str += 'C';
+}
+
+else if (a == 13){
+    str += 'D';
+}
+
+else if (a == 14){
+    str += 'E';
+}
+
+else if (a == 15){
+    str += 'F';
+}
+
+num = num / base;
+
+}
+
+str = itc_reverse_str(str);
+
+return str;
+}
+
+string decQuotientToBin(string str){
+long long  const_pow = sup_pow(10, itc_len(str));
+long double num =  string_number_double(str);
+str = "";
+while (num > 0){
+    num = num * 2;
+    if (num >= 1){
+        str += '1';
+        num -= 1.0;
+    } else if (num > 0 && num < 1){
+        str += '0';
+    }
+    if (itc_len(str) > 23){
+                                       // str = "" =>                     10100101111000110101001
+                                       // str = itc_slice_str(str,0, 22); 01010010111100011010100
+                                       // str = itc_slice_str(str,1, 23); 01010010111100011010100
+        return str;                    // str                             01010010111100011010100
+    }
+    cout << "num = " << num << " str = " << str << endl;
+}
+return itc_reverse_str(str);
+}
+
+int main() {
+string num = "", itog = "";
+getline(cin, num);
+if (num == "-inf" || num == "-infinity"){ cout << "11111111100000000000000000000000"; }
+else if (num == "inf"  || num == "infinity"){cout << "01111111100000000000000000000000";}
+else if (num == "0"){cout << "00000000000000000000000000000000";}
+else if (num == "-0"){cout << "10000000000000000000000000000000";}
+else if (num == "" || num == "NaN" || num == "nan"){cout << "10000000011111111111111111100000";}
+
+else{
+    cout << "303 \n\n" << endl;
+    int tchka = itc_find_str(num, ".");
+    string zahlen  = itc_slice_str(num, 0, tchka - 1), quotient = itc_slice_str(num, tchka + 1, itc_len(num) - 1), exp;
+    zahlen = itc_decToBase(string_number(zahlen), 2);
+    quotient = decQuotientToBin(quotient);
+    quotient = zahlen + quotient;
+    quotient = itc_slice_str(quotient, 1, itc_len(quotient) - 1);
+
+    //S
+    if (num[0] == '-'){itog += '1';}
+    else {itog += '0';}
+
+    //P
+    if (zahlen == "0"){exp = itc_decToBase(126, 2);}
+    else{exp = itc_decToBase(126 + itc_len(zahlen), 2);}
+
+    while (itc_len(exp) < 8){exp = '0' + exp;}
+    itog += exp;
+
+    //M
+    while (itc_len(quotient) < 23){quotient += '0';}
+    if (itc_len(quotient) > 23){quotient = itc_slice_str(quotient, 0, 22);}
+    itog += quotient;
+}
+cout << itog;
+    return 0;
+}
